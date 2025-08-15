@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background Colors */
+    --color-background: #FAFAFA; /* warm off-white */
+    --color-foreground: #111827; /* rich black */
+    --color-card: #FFFFFF; /* pure white */
+    --color-card-foreground: #111827; /* rich black */
+    --color-popover: #FFFFFF; /* pure white */
+    --color-popover-foreground: #111827; /* rich black */
+    --color-muted: #F3F4F6; /* light gray */
+    --color-muted-foreground: #6B7280; /* balanced gray */
+
+    /* Primary Brand Colors */
+    --color-primary: #1E40AF; /* deep trust blue */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #6366F1; /* vibrant indigo */
+    --color-secondary-foreground: #FFFFFF; /* white */
+
+    /* Interactive & Accent Colors */
+    --color-accent: #F59E0B; /* electric amber */
+    --color-accent-foreground: #FFFFFF; /* white */
+    --color-success: #10B981; /* fresh green */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #F59E0B; /* amber */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #EF4444; /* clear red */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #EF4444; /* clear red */
+    --color-destructive-foreground: #FFFFFF; /* white */
+
+    /* Form & UI Elements */
+    --color-border: #E5E7EB; /* light gray border */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #1E40AF; /* deep trust blue */
+
+    /* Text Hierarchy */
+    --color-text-primary: #111827; /* rich black */
+    --color-text-secondary: #6B7280; /* balanced gray */
+
+    /* Brand Specific Colors */
+    --color-conversion-accent: #7C3AED; /* electric purple */
+    --color-conversion-accent-foreground: #FFFFFF; /* white */
+    --color-urban-pulse: #FCD34D; /* vibrant yellow */
+    --color-urban-pulse-foreground: #111827; /* rich black */
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-modal: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-brand-card: 0 4px 12px rgba(30, 64, 175, 0.08);
+    --shadow-brand-modal: 0 8px 24px rgba(30, 64, 175, 0.12);
+
+    /* Border Radius */
+    --radius: 8px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  /* Typography Hierarchy */
+  .font-headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .font-value-prop {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  .font-cta {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+
+  .font-accent {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+  }
+
+  /* Brand Animation Classes */
+  .transition-brand {
+    transition: all 0.3s ease-out;
+  }
+
+  .transition-micro {
+    transition: all 0.2s ease-out;
+  }
+
+  .transition-spring {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Brand Hover Effects */
+  .hover-lift {
+    @apply transition-brand;
+  }
+
+  .hover-lift:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 24px rgba(30, 64, 175, 0.2);
+  }
+
+  /* Cultural Micro-interactions */
+  .cultural-hover {
+    @apply transition-brand;
+  }
+
+  .cultural-hover:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+    box-shadow: var(--shadow-brand-modal);
+  }
+
+  /* Kinetic Animations */
+  @keyframes pulse-brand {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .pulse-brand {
+    animation: pulse-brand 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes text-reveal {
+    from {
+      clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    }
+    to {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+
+  .text-reveal {
+    animation: text-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  /* Countdown Timer Styles */
+  .countdown-urgent {
+    color: var(--color-error);
+    animation: pulse-brand 1s infinite;
+  }
+
+  .countdown-warning {
+    color: var(--color-warning);
+  }
+
+  .countdown-normal {
+    color: var(--color-success);
+  }
+}
